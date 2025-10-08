@@ -1,6 +1,9 @@
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+SRCDIR = srcs
+INCDIR = Include
+
 SRCS = ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
@@ -35,14 +38,16 @@ SRCS = ft_isalpha.c \
 	ft_strmapi.c \
 	ft_itoa.c \
 	ft_split.c
-	
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix $(SRCDIR)/, $(SRCS:.c=.o))
 
-all:$(NAME)
+all: $(NAME)
 
-$(NAME):$(OBJS)
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+$(SRCDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)
