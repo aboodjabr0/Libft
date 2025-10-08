@@ -47,7 +47,7 @@ You’ll end up with your own personal C library that you can reuse in future 42
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/libft.git
+   git clone https://github.com/aboodjabr0/libft.git
    cd libft
    ```
 
